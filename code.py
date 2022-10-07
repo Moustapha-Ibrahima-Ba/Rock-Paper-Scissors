@@ -1,45 +1,35 @@
-# ....... ROCK-PAPER-SCISSORS .........
-print("... ROCK ...")
-print("... PAPER ...")
-print("... SCISSORS ...")
+from random import randint
+# print("Rock...")
+# print("Paper...")
+# print("Scissors...")
 
-import random
+player = input("Player, make your move: ").lower()
+rand_num = randint(0,2)
+if rand_num == 0:
+	computer = "rock"
+elif rand_num == 1:
+	computer = "paper"
+else:
+	computer = "scissors"
 
-computer_choice = random.randint(1, 3)
+print(f"Computer plays {computer}" )
 
-# Inputs
-player = input("Enter your choice: ")
-
-if player != "rock" and player != "paper" and player != "scissors":
-	print("Something went wrong, choose between 'rock', 'paper', and 'scissors' ")
-
-# rock
-elif computer_choice == 1:
-	computer_choice = "rock"
-	print(f"The computer plays {computer_choice} ")
-	if player == "paper":
-		print("Congratulation, You win.")
-	elif player == "scissors":
-		print("Sorry, You lost.")
-	elif player == computer_choice:
-		print("It is a tie!")
-# paper
-elif computer_choice == 2:
-	computer_choice = "paper"
-	print(f"The computer plays {computer_choice} ")
-	if player == "rock":
-		print("Congratulation, You win.")
-	elif player == "scissors":
-		print("Sorry, You lost.")
-	elif player == computer_choice:
-		print("It is a tie!")
-# scissors
-elif computer_choice == 3:
-	computer_choice = "scissors"
-	print(f"The computer plays {computer_choice} ")
-	if player == "paper":
-		print("Congratulation, You win.")
-	elif player == "rock":
-		print("Sorry, You lost.")
-	elif player == computer_choice:
-		print("It is a tie!")
+if player == computer:
+	print("It's a tie!")
+elif player == "rock":
+	if computer == "scissors":
+		print("player wins!")
+	else:
+		print("computer wins!")
+elif player == "paper":
+	if computer == "rock":
+		print("player wins!")
+	else:
+		print("computer wins!")
+elif player == "scissors":
+	if computer == "paper":
+		print("player wins!")
+	else:
+		print("computer wins!")	
+else:
+	print("Please enter a valid move!")
